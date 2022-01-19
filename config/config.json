@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "bulk-import-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/bulkImport/BulkImportWebPart.js",
+          "manifest": "./src/webparts/bulkImport/BulkImportWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "BulkImportWebPartStrings": "lib/webparts/bulkImport/loc/{locale}.js"
+  }
+}
