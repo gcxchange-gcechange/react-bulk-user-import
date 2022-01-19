@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { IHttpClientOptions, AadHttpClient, HttpClientResponse } from '@microsoft/sp-http';
 import styles from './BulkImport.module.scss';
 import {
   TextField,
@@ -31,7 +32,38 @@ export default class BulkImport extends React.Component<IBulkImportProps, IBulkI
       isLoading: true,
     })
     console.log(this.state.listName);
-    // do a search for the list name
+
+    const reqHeaders: Headers = new Headers();
+    // var reqBody = new FormData();
+
+    const options: IHttpClientOptions = {
+      headers: reqHeaders,
+      body: `{ name: ${this.state.listName} }`
+    };
+    
+    this.props.context.aadHttpClientFactory
+      // Add Client
+      .getClient('')
+      .then((client: AadHttpClient): void => {
+        client
+          // Add URL
+          .post('', AadHttpClient.configurations.v1, options)
+          .then((response: HttpClientResponse) => {
+            console.log(response);
+            if (response.status === 200) {
+              this.setState({
+                isLoading: false,
+                functionResponse: '200'
+              });
+            } else {
+              this.setState({
+                isLoading: false,
+                functionResponse: '500'
+              });
+            }
+            return response.json();
+          })
+      });
   }
 
   public render(): React.ReactElement<IBulkImportProps> {
