@@ -13,7 +13,13 @@
       "privacyUrl": "",
       "termsOfUseUrl": "",
       "mpnId": ""
-    }
+    },
+    "webApiPermissionRequests": [
+      {
+        "resource": "dgcx_dev_appreg_bulkuserimport_auth",
+        "scope": "user_impersonation"
+      }
+    ]
   },
   "paths": {
     "zippedPackage": "solution/react-bulk-user-import.sppkg"
