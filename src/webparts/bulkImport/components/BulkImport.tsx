@@ -34,11 +34,12 @@ export default class BulkImport extends React.Component<IBulkImportProps, IBulkI
     console.log(this.state.listName);
 
     const reqHeaders: Headers = new Headers();
-    // var reqBody = new FormData();
+    reqHeaders.append("Content-type", "application/json");
+    reqHeaders.append("Cache-Control", "no-cache");
 
     const options: IHttpClientOptions = {
       headers: reqHeaders,
-      body: `{ name: ${this.state.listName} }`
+      body: `{ name: '${this.state.listName}' }`
     };
     
     this.props.context.aadHttpClientFactory
