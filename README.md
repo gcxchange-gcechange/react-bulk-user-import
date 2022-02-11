@@ -45,7 +45,9 @@ Version|Date|Comments
   - **npm install**
   - **gulp serve**
 
-> Be sure to add your client and URL to your [function app](https://github.com/gcxchange-gcechange/appsvc_fnc_bulkuserimport) in the `sendImportQueue` function
+> Be sure to add your client ID and URL to your [function app](https://github.com/gcxchange-gcechange/appsvc_fnc_bulkuserimport) in the `sendImportQueue` function
+
+> Be sure to update the `webApiPermissionRequests` in `config/package-solution` to align with your function app
 
 ## Features
 
